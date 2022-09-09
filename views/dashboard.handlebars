@@ -1,0 +1,28 @@
+<section>
+  <h2>Create New Post</h2>
+
+  <form class="new-post-form">
+    <div>
+      <label for="post-text">What's happening?</label>
+      <input type="text" id="post-text" name="post-text" />
+    </div>
+    <button type="submit" class="btn">Vent</button>
+  </form>
+</section>
+
+{{#if posts.length}}
+<article>
+  <h2>Past Vents</h2>
+  <section>
+    {{#each posts as |post|}}
+    <article>
+      {{> post-info post}}
+      {{user_id}}
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+    </article>
+    {{/each}}
+  </article>
+</section>
+{{/if}}
+
+<script src="/javascript/add-post.js"></script>
